@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.madlevel3example.databinding.ItemReminderBinding
+import com.example.madlevel4example.databinding.ItemReminderBinding
 import kotlinx.android.synthetic.main.item_reminder.view.*
 
 class ReminderAdapter(private val reminders: List<Reminder>):
