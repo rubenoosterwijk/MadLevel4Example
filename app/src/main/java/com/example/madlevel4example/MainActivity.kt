@@ -19,16 +19,28 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById(R.id.toolbar))
 
-        findViewById<FloatingActionButton>(R.id.fab).setOnClickListener {
-
         navController = findNavController(R.id.nav_host_fragment)
-        fab.setOnClickListener{
+
+        fab.setOnClickListener {
             navController.navigate(
                 R.id.action_remindersFragment_to_addReminderFragment
             )
         }
+
+        fabToggler()
+
+    }
+
+    private fun fabToggler() {
+        navController.addOnDestinationChangedListener { _,       destination, _ ->
+            if (destination.id in arrayOf(R.id.addReminderFragment)) {
+                fab.hide()
+            } else {
+                fab.show()
+            }
         }
     }
+
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
